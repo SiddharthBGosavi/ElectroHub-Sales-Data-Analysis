@@ -12,30 +12,20 @@
 
 **ElectroHub Sales Data Analysis** is a Power BI dashboard designed to transform raw transaction-level sales data into an interactive business intelligence solution.
 
-The project focuses on answering practical business questions such as:
-
-- How are sales and profit changing over time?
-- Which products generate the highest sales and profit?
-- Which products have the weakest performance?
-- Which cities contribute most to sales?
-- How much discount is being offered across promotion categories?
-- How do sales, profit, and units sold compare across different time periods?
-- How can management quickly filter and investigate customer, product, promotion, and date-level performance?
-
-The dashboard combines **data modeling, DAX measures, interactive filters, KPI analysis, charts, maps, and detailed transaction views** in a single Power BI solution.
+The dashboard combines **Excel, Power Query, Power BI, DAX, data modeling, interactive filters, KPI analysis, charts, maps, and detailed transaction views** to answer practical business questions and support data-driven decision-making.
 
 ---
 
-## 🎯 Objectives
+## 🎯 Project Objectives
 
-1. Analyze overall sales, profit, and quantity sold.
-2. Identify top-performing and underperforming products.
-3. Evaluate product performance using sales, units, and profit together.
-4. Understand sales distribution across cities.
-5. Analyze discount levels across different promotional categories.
-6. Study sales and profitability trends over time.
-7. Enable flexible analysis through date-based and category-based filters.
-8. Build a dimensional data model suitable for Power BI reporting.
+- Analyze overall sales, profit, and quantity sold.
+- Identify top-performing and underperforming products.
+- Analyze sales trends across different time periods.
+- Understand the relationship between sales and profit.
+- Compare business performance between user-selected periods.
+- Evaluate discount levels across promotion categories.
+- Analyze order-level sales and profitability details.
+- Understand geographical sales performance across cities.
 
 ---
 
@@ -43,11 +33,11 @@ The dashboard combines **data modeling, DAX measures, interactive filters, KPI a
 
 | Tool / Technology | Purpose |
 |---|---|
+| **Microsoft Excel** | Source-data handling and preparation |
+| **Power Query** | Data cleaning and transformation |
 | **Power BI Desktop** | Dashboard development and visualization |
 | **DAX** | Measures, calculations, and KPI analysis |
-| **Power Query** | Data transformation and preparation |
-| **Microsoft Excel** | Source-data handling / preparation |
-| **Data Modeling** | Relationships between fact and dimension tables |
+| **Data Modeling** | Fact and dimension relationships |
 | **Bing Maps** | City-level geographical analysis |
 | **Power BI Slicers** | Interactive filtering |
 | **GitHub** | Version control and portfolio hosting |
@@ -56,7 +46,7 @@ The dashboard combines **data modeling, DAX measures, interactive filters, KPI a
 
 ## 🗂️ Data Model
 
-The project uses a dimensional model centered around a sales **Fact Table** and supporting dimension tables.
+The project follows a dimensional modeling approach with a central sales fact table and supporting dimension tables.
 
 ```text
                     ┌───────────────────┐
@@ -109,43 +99,151 @@ Contains Customer ID, Customer Name, City, State, Pincode, Email ID, and Phone N
 Contains Promotion Name, Ad Type, Coupon Code, Discount Percentage, and Price Reduction Type.
 
 #### `Date Table 1` / `Date Table 2`
-Used for date-based analysis and comparison between reporting periods / filter selections.
+Used for date-based analysis and comparison between selected reporting periods.
 
 #### `Measures Table`
-A dedicated location for reusable DAX measures such as Net Sales, Net Profit, Units Sold, and supporting calculations.
+A dedicated table for reusable DAX measures such as Net Sales, Net Profit, Units Sold, and supporting calculations.
+
+---
+
+# 🎯 KPIs & Business Questions Answered
+
+The ElectroHub dashboard was specifically designed to answer the following **8 key business requirements**:
+
+### 1. 🏆 Top / Bottom 5 Products by Sales, Profit & Quantity Sold
+
+Identify the **Top 5 and Bottom 5 products** using three important performance metrics:
+
+- **Sales** – Which products generate the highest and lowest revenue?
+- **Profit** – Which products contribute most and least to profitability?
+- **Quantity Sold** – Which products have the highest and lowest sales volume?
+
+This provides a multi-dimensional view of product performance instead of evaluating products using sales alone.
+
+---
+
+### 2. 📅 Sales Trends Over Time
+
+Analyze how sales performance varies over different time granularities:
+
+- **Daily**
+- **Monthly**
+- **Quarterly**
+- **Annually**
+
+This allows users to identify trends, fluctuations, seasonal patterns, growth periods, and changes in sales performance over time.
+
+---
+
+### 3. 📈 Relationship Between Sales & Profit
+
+The dashboard uses a **scatter plot** to visualize the relationship between **Net Sales and Profit**.
+
+This helps answer questions such as:
+
+- Do higher sales generally result in higher profit?
+- Are there products/orders with high sales but comparatively low profit?
+- Are there unusual or potentially low-margin transactions?
+
+---
+
+### 4. 🔄 Compare Sales, Profit & Quantity Sold Between Any Two Periods
+
+Users can select **any two date ranges** and compare:
+
+- **Total Sales**
+- **Total Profit**
+- **Total Quantity / Units Sold**
+
+This enables flexible period-over-period analysis without requiring separate dashboards for different time periods.
+
+---
+
+### 5. 🏷️ Average Discount Offered in Each Discount Category
+
+Analyze the **average discount offered** for each promotion / discount category.
+
+The dashboard can be used to compare categories such as:
+
+- Weekend Flash Sale
+- Clearance Sale
+- Summer Sale
+- New Year Sale
+- Festive Diwali
+
+This helps understand the discount strategy used across different promotional campaigns.
+
+---
+
+### 6. 🧾 Total Number of Orders
+
+A dedicated KPI card displays the **Total Number of Orders**, allowing users to quickly understand the overall transaction volume.
+
+The dashboard currently shows approximately **3.51K orders** in the overall context shown in the screenshots.
+
+---
+
+### 7. 🔎 Detailed Order-Level Analysis with Visual Filters
+
+The dashboard provides a detailed table containing sales and other available fields for individual orders / transactions.
+
+Users can filter this detailed view using visual filters such as:
+
+- **Product**
+- **Date**
+- **Customer ID / Customer Name**
+- **Promotion Category / Promotion Name**
+
+The detailed view can expose fields such as:
+
+- Order ID
+- Customer ID
+- Product ID
+- Promotion ID
+- Date
+- Units Sold
+- Price Per Unit
+- Total Sales
+- Discount Percentage
+- Discount Value
+- Net Sales
+- Profit
+
+This allows users to move from **high-level KPIs to detailed transaction-level investigation**.
+
+---
+
+### 8. 🌍 Sales by Different Cities
+
+A geographical map visual shows **sales distribution across different cities**.
+
+This helps identify:
+
+- High-performing cities
+- Low-performing regions
+- Geographic concentration of sales
+- Potential regional opportunities
+
+The map provides a quick geographic overview that complements the product and time-based analysis.
 
 ---
 
 ## 📊 Dashboard Highlights
 
 ### 🌍 Sales by City
-A map visual displays the geographical distribution of sales across cities. Bubble size helps identify locations with relatively higher sales activity.
-
-**Business use:** Identify strong geographic markets and regions requiring further investigation.
+A map visual displays the geographical distribution of sales across cities.
 
 ### 🧾 Total Number of Orders
-The KPI card displays approximately **3.51K orders** for the current dashboard context.
+The KPI card displays approximately **3.51K orders** in the overall dashboard context shown.
 
 ### 🏷️ Average Discount by Promotion Category
-The dashboard compares average discount values across promotion categories such as Weekend Flash Sale, Clearance Sale, Summer Sale, New Year Sale, and Festive Diwali.
+A horizontal bar chart compares average discount values across promotion categories.
 
 ### 📈 Profit vs Net Sales
-A scatter plot compares **Profit** against **Net Sales**, helping identify the relationship between revenue and profitability and spot unusual observations.
+A scatter plot shows the relationship between profit and net sales.
 
 ### 📅 Sales Trend Over Time
-The time-series visual tracks sales across the available years from 2020 onward.
-
-The displayed annual values are approximately:
-
-| Year | Sales shown |
-|---|---:|
-| 2020 | 33M |
-| 2021 | 31M |
-| 2022 | 30M |
-| 2023 | 35M |
-| 2024 | 0M* |
-
-> *The screenshot shows 0M for 2024. This may represent no applicable sales records in the current model/filter context or incomplete 2024 data.
+The dashboard contains a time-series analysis of sales performance across the available date range, with analysis possible at daily, monthly, quarterly, and annual levels.
 
 ### 🏆 Top 5 Products by Sales
 Products visible among the leading sales performers include:
@@ -164,33 +262,21 @@ The lowest-sales group shown includes Tupperware Lunch Box, L'Oreal Shampoo, Niv
 ### 📦 Top 5 Products by Units Sold
 Examples visible in the dashboard include Apple iPhone 14 (281), Raymond Suit (274), Fossil Smartwatch (269), Zara Casual Shirt (269), and IFB Microwave Oven (259).
 
-### 📦 Bottom 5 Products by Units Sold
-Examples include Nivea Body Lotion, Tupperware Lunch Box, Milton Thermos Flask, Fabindia Kurta, and Borosil Glass Set.
-
 ### 💰 Top 5 Products by Profit
 Examples visible in the dashboard include Apple iPhone 14 (~2.25M), Apple MacBook Air (~2.08M), Sony Bravia 55\" TV (~2.05M), Samsung Galaxy S21 (~1.61M), and HP Pavilion Laptop (~1.55M).
-
-### 📉 Bottom 5 Products by Profit
-The lowest-profit group shown includes Tupperware Lunch Box, L'Oreal Shampoo, Nivea Body Lotion, Dove Soap Pack, and Colgate Toothpaste.
-
-### 🔄 Period Comparison
-Two date filters are used to compare KPI outcomes across selected periods. The comparison includes **Total Sales, Total Profit, and Total Quantity / Units Sold**.
-
-### 📋 Detailed Transaction Table
-A filtered detail table provides visibility into Customer ID, Product ID, Promotion ID, Date, Discount Percentage, Discount Value, Net Sales, Price Per Unit, Profit, and order-level information.
 
 ---
 
 ## 🔎 Interactive Filters
 
-The report supports filtering by:
+The report supports filtering and interactive analysis by:
 
 - 📅 Date / date range
-- 👤 Customer / Name
+- 👤 Customer / Customer ID
 - 📱 Product Name
-- 🏷️ Promotion Name
+- 🏷️ Promotion Name / Promotion Category
 
-These controls allow users to move from an executive-level overview to focused product, customer, promotion, or time-period analysis.
+These filters allow users to move from an executive-level overview to focused product, customer, promotion, date, or transaction-level analysis.
 
 ---
 
@@ -208,7 +294,7 @@ Sum of Net Profit = SUM(FactTable[Profit])
 Sum of Units Sold = SUM(FactTable[Units Sold])
 ```
 
-Additional measures can be added as the analytical model evolves.
+Additional measures are used to support the dashboard's KPIs, comparisons, and analytical visuals.
 
 ---
 
@@ -224,45 +310,26 @@ From the dashboard screenshots, the overall dataset shows approximately:
 | **Total Orders** | **3.51K** |
 | **Total Discount Value** | **3.39M** |
 
-These are dashboard observations and can change when filters are applied.
+These values represent the dashboard context shown in the screenshots and can change when filters are applied.
 
 ---
 
 ## 💡 Business Insights
 
 ### Product performance
-High-value electronics such as smartphones, laptops, and televisions dominate the top-sales and top-profit rankings, while several household and personal-care products appear among the lowest performers.
+The dashboard makes it possible to identify products that perform strongly across sales, profit, and quantity, as well as products that may require further investigation.
 
 ### Sales volume vs profitability
-A product can perform strongly in units sold without being among the highest-profit products. Evaluating **sales, units, and profit together** provides a more complete view of product performance.
+A product may have high quantity sold without being the most profitable product. Comparing **Sales + Profit + Quantity Sold** provides a more complete picture of product performance.
 
 ### Promotion effectiveness
-Promotion categories have different discount levels. Discounting should therefore be evaluated against sales uplift and profitability rather than volume alone.
+Different promotion categories have different average discount levels. Discounting should therefore be evaluated alongside sales and profit to understand its business impact.
 
 ### Geographic performance
-The city map helps identify geographic concentrations of sales and can support future regional marketing and distribution decisions.
+City-level sales analysis can help identify important markets and support regional sales, marketing, and distribution decisions.
 
 ### Time-based performance
-The displayed trend peaks around **2023 (~35M)**, while the current visual shows 0M for 2024. The underlying date/data configuration should be checked before treating the 2024 point as a business conclusion.
-
----
-
-## 🧠 Analytical Questions Answered
-
-- What is the total sales generated?
-- What is the total profit generated?
-- How many units have been sold?
-- How many orders have been placed?
-- Which products generate the most revenue?
-- Which products generate the most profit?
-- Which products have the lowest sales?
-- Which products have the lowest profit?
-- Which products have the highest unit volume?
-- Which promotion categories provide higher discounts?
-- How does profit relate to net sales?
-- Which cities contribute to sales?
-- How does performance change across selected dates?
-- What does the transaction-level data look like after applying filters?
+Daily, monthly, quarterly, and annual analysis enables identification of trends and changes in sales performance over time.
 
 ---
 
@@ -284,6 +351,8 @@ Relationships
 DAX Measures
       ↓
 Interactive Visualizations
+      ↓
+KPI Analysis
       ↓
 Business Insights
 ```
@@ -319,7 +388,8 @@ ElectroHub-Sales-Data-Analysis/
 3. Open the `.pbix` file.
 4. Refresh the data source if the dataset is stored separately.
 5. Use the date, customer, product, and promotion filters to explore the report.
-6. Compare sales, profit, and units across different periods.
+6. Compare sales, profit, and quantity across selected periods.
+7. Use the detailed table to investigate individual transactions.
 
 ---
 
@@ -333,7 +403,7 @@ The report contains views for:
 - Profit vs Net Sales
 - Sales trend over time
 - Top and bottom product performance
-- Date-range comparisons
+- Two-period comparison
 - Detailed filtered transactions
 
 To make the GitHub repository more visual, exported screenshots can be placed in a `Screenshots/` folder and embedded like this:
@@ -351,6 +421,7 @@ To make the GitHub repository more visual, exported screenshots can be placed in
 - Power BI
 - DAX
 - Power Query
+- Excel
 - Data Modeling
 - Dimensional / star-schema modeling concepts
 - KPI development
@@ -369,13 +440,13 @@ To make the GitHub repository more visual, exported screenshots can be placed in
 
 - Add year-over-year growth KPIs.
 - Add profit margin % and discount-impact measures.
-- Add monthly and quarterly trend analysis.
+- Add more detailed monthly and quarterly trend analysis.
 - Add product-category and product-line drilldowns.
 - Add customer segmentation and customer lifetime value analysis.
 - Add promotion ROI analysis.
 - Add a decomposition-tree analysis for sales and profit.
-- Validate the 2024 date/data configuration responsible for the 0M point.
-- Add a dedicated executive-summary page with fewer, more decision-oriented visuals.
+- Add additional drill-through pages for products and customers.
+- Add an executive-summary page with decision-oriented KPIs.
 
 ---
 
@@ -390,7 +461,7 @@ GitHub: [@SiddharthBGosavi](https://github.com/SiddharthBGosavi)
 
 ## ⭐ Project Purpose
 
-This project was created as a practical **Power BI portfolio project** to demonstrate how sales data can be modeled, analyzed, visualized, and converted into business-oriented insights.
+This project was created as a practical **Power BI portfolio project** to demonstrate how sales data can be cleaned, modeled, analyzed, visualized, and converted into business-oriented insights.
 
 If you find the project useful, consider giving the repository a ⭐.
 
